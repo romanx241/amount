@@ -99,7 +99,7 @@ class AmountKtTest {
         // arrange
 
         val itemCard = "Maestro"
-        val itemSumPerevod = 150000
+        val itemSumPerevod = 160000 // добавлено неверное значение для ломки сборки
         val itemSumPredPerevod = 2000
 
 
