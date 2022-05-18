@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AmountKtTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-05-18T08:16:24" hostname="USER-ПК" time="0.021">
+  <properties/>
+  <testcase name="analizCardVisa" classname="AmountKtTest" time="0.017"/>
+  <testcase name="analizLimitPerevodSchet" classname="AmountKtTest" time="0.001"/>
+  <testcase name="analizLimitPerevodMaestro" classname="AmountKtTest" time="0.0"/>
+  <testcase name="analizLimitPerevodMastercard" classname="AmountKtTest" time="0.0"/>
+  <testcase name="analizCardMir" classname="AmountKtTest" time="0.001"/>
+  <testcase name="analizLimitPerevodMir" classname="AmountKtTest" time="0.0"/>
+  <testcase name="analizCardMaestro" classname="AmountKtTest" time="0.001"/>
+  <testcase name="analizCardMastercard" classname="AmountKtTest" time="0.001"/>
+  <testcase name="analizLimitPerevodVisa" classname="AmountKtTest" time="0.0"/>
+  <system-out><![CDATA[Сумма перевода в копейках составит: 1500000коп.
+С вас будет взята комиссия в размере: 11250 коп.
+Итоговая сумма в копейках составит: 1511250 коп.
+Итоговая сумма в рублях составит: 15112 руб.
+Сумма перевода в копейках составит: 2500000коп.
+С вас будет взята комиссия в размере: 18750 коп.
+Итоговая сумма в копейках составит: 2518750 коп.
+Итоговая сумма в рублях составит: 25187 руб.
+Сумма перевода в копейках составит: 7000000коп.
+С вас будет взята комиссия в размере: 0 коп.
+Итоговая сумма в копейках составит: 7000000 коп.
+Итоговая сумма в рублях составит: 70000 руб.
+Сумма перевода в копейках составит: 7600000коп.
+С вас будет взята комиссия в размере: 47600 коп.
+Итоговая сумма в копейках составит: 7647600 коп.
+Итоговая сумма в рублях составит: 76476 руб.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

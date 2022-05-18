@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>amount.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">amount</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">amount.kt</span></div><h1>amount.kt</h1><pre class="source lang-java linenums">import java.util.*
+
+
+fun main() {
+
+    val amount: Int
+    val sumpredperevod: Int
+<span class="nc" id="L8">    val `in` = Scanner(System.`in`)</span>
+<span class="nc" id="L9">    print(&quot;Р’РІРµРґРёС‚Рµ С‚РёРї РєР°СЂС‚С‹: &quot;)</span>
+<span class="nc" id="L10">    val typeCard = `in`.nextLine()</span>
+<span class="nc" id="L11">    print(&quot;Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ РїРµСЂРµРІРѕРґР° РІ СЂСѓР±Р»СЏС…: &quot;)</span>
+<span class="nc" id="L12">    amount = `in`.nextInt()</span>
+<span class="nc" id="L13">    print(&quot;Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ РїСЂРµРґС‹РґСѓС‰РёС… РїРµСЂРµРІРѕРґРѕРІ: &quot;)</span>
+<span class="nc" id="L14">    sumpredperevod = `in`.nextInt()</span>
+<span class="nc" id="L15">    analizCard(typeCard, amount, sumpredperevod)</span>
+<span class="nc" id="L16">    analizLimitPerevod(typeCard, amount, sumpredperevod)</span>
+
+<span class="nc" id="L18">}</span>
+
+
+fun analizCard(card: String, sumperevod: Int, sumpredperevod: Int): Int {
+
+<span class="fc" id="L23">    val sumperevod = sumperevod * 100</span>
+<span class="fc" id="L24">    val limitPerevod = true</span>
+<span class="fc" id="L25">    var pay = 0</span>
+<span class="fc bfc" id="L26" title="All 6 branches covered.">    if ((card == &quot;Mastercard&quot; || card == &quot;Maestro&quot;) &amp;&amp; sumperevod &lt;= 7500000) {</span>
+<span class="fc" id="L27">        pay = 0</span>
+    }
+<span class="fc bfc" id="L29" title="All 6 branches covered.">    if ((card == &quot;Mastercard&quot; || card == &quot;Maestro&quot;) &amp;&amp; sumperevod &gt; 7500000) {</span>
+<span class="fc" id="L30">        pay = (sumperevod * 0.6 / 100 + 2000).toInt()</span>
+    }
+<span class="fc bfc" id="L32" title="All 4 branches covered.">    if (card == &quot;Visa&quot; || card == &quot;РњРёСЂ&quot;) {</span>
+<span class="fc" id="L33">        pay = (sumperevod * 0.75 / 100).toInt()</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (pay &lt; 3500) {</span>
+<span class="nc" id="L35">            pay = 3500</span>
+        }
+    }
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">    if (card == &quot;VKPay&quot;) {</span>
+<span class="nc" id="L39">        pay = 0</span>
+    }
+
+<span class="fc" id="L42">    if (limitPerevod === true) {</span>
+<span class="fc" id="L43">        println(&quot;РЎСѓРјРјР° РїРµСЂРµРІРѕРґР° РІ РєРѕРїРµР№РєР°С… СЃРѕСЃС‚Р°РІРёС‚: &quot; + sumperevod + &quot;РєРѕРї.&quot;)</span>
+<span class="fc" id="L44">        println(&quot;РЎ РІР°СЃ Р±СѓРґРµС‚ РІР·СЏС‚Р° РєРѕРјРёСЃСЃРёСЏ РІ СЂР°Р·РјРµСЂРµ: $pay РєРѕРї.&quot;)</span>
+<span class="fc" id="L45">        println(&quot;Р�С‚РѕРіРѕРІР°СЏ СЃСѓРјРјР° РІ РєРѕРїРµР№РєР°С… СЃРѕСЃС‚Р°РІРёС‚: &quot; + (sumperevod + pay) + &quot; РєРѕРї.&quot;)</span>
+<span class="fc" id="L46">        println(&quot;Р�С‚РѕРіРѕРІР°СЏ СЃСѓРјРјР° РІ СЂСѓР±Р»СЏС… СЃРѕСЃС‚Р°РІРёС‚: &quot; + (sumperevod + pay) / 100 + &quot; СЂСѓР±.&quot;)</span>
+    } else {
+        println(&quot;РџСЂРµРІС‹С€РµРЅ Р»РёРјРёС‚ РїРµСЂРµРІРѕРґР°&quot;)
+    }
+<span class="fc" id="L50">    return pay</span>
+}
+
+fun analizLimitPerevod(card: String, sumperevod: Int, sumpredperevod: Int): Boolean {
+
+<span class="fc" id="L55">    val sumperevod = sumperevod * 100</span>
+<span class="fc" id="L56">    var limitPerevod = true</span>
+<span class="pc bpc" id="L57" title="4 of 13 branches missed.">    if (card == &quot;Mastercard&quot; || card == &quot;Maestro&quot; || card == &quot;Visa&quot; || card == &quot;РњРёСЂ&quot;) {</span>
+<span class="pc bpc" id="L58" title="2 of 4 branches missed.">        if (sumperevod &gt; 15000000 || sumperevod + sumpredperevod &gt; 60000000) {</span>
+<span class="nc" id="L59">            limitPerevod = false</span>
+        }
+    }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    if (card == &quot;VKPay&quot;) {</span>
+<span class="pc bpc" id="L63" title="2 of 4 branches missed.">        if (sumperevod &gt; 1500000 || sumperevod + sumpredperevod &gt; 4000000) {</span>
+<span class="nc" id="L64">            limitPerevod = false</span>
+        }
+    }
+<span class="fc" id="L67">    return limitPerevod</span>
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
